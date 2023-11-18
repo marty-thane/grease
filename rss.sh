@@ -1,8 +1,9 @@
 #!/bin/bash
 set -eu
 
-RES=$(pwd)/.tools
-[ $RES/vars.sh ] && . $RES/vars.sh
+if [ -f ./vars.sh ]; then
+	source ./vars.sh
+fi
 
 cd $1
 
@@ -16,17 +17,31 @@ cat << EOF > $RSSFILE
 		<lastBuildDate>$DATE</lastBuildDate>
 EOF
 
-for file in `find ./ -type f -not -name index.html -not -name .gitignore -not -name style.css -not -name rss -not -name Makefile -not -path "./.git/*" -not -path "./.tools/*"`; do
-	name=${file##*/}
-	path=${file#\./}
+for item in $(find -type f); do
+	name=${item##*/}
+	path=${item#\./}
 	category=$(echo $path | cut -f1 -d/)
-	modified=$(date -Rr $file)
+	modified=$(date -Rr $item)
+	if [[ "$item" == *"/."* ]]; then
+		echo "skipping hidden: $name"
+		continue
+	fi
+	if [[ " ${IGNORED_FILES[@]} " =~ " $name " ]]; then
+		echo "skipping ignored: $name"
+		continue
+	fi
 	cat << EOF >> $RSSFILE
 		<item>
 			<title>$name</title>
 			<link>$BASEURL/$path</link>
-			<category>$category</category>
 			<pubDate>$modified</pubDate>
+EOF
+	if [[ "$name" != "$category" ]]; then
+		cat << EOF >> $RSSFILE
+			<category>$category</category>
+EOF
+	fi
+	cat << EOF >> $RSSFILE
 		</item>
 EOF
 done
@@ -35,3 +50,4 @@ cat << EOF >> $RSSFILE
 	</channel>
 </rss>
 EOF
+

@@ -1,11 +1,11 @@
 #!/bin/bash
 
-TITLE="Martinova Pochutina"
-AUTHOR="Martin Zeman"
-CONTACT="mzf@tuta.io"
-DESCRIPTION="delikátní záležitost..."
-BASEURL="https://marty-thane.github.io"
+TITLE="Your Website"
+AUTHOR="John Doe"
+CONTACT="john.doe@example.com"
+DESCRIPTION="my personal website"
+BASEURL="https://example.com"
 HTMLFILE="index.html"
 RSSFILE="rss"
 DATE=$(date -R)
-IGNORED_FILES=("icon.ico" "index.html" "style.css" "rss" "Makefile")
+IGNORED_FILES=( $HTMLFILE $RSSFILE "style.css" )
