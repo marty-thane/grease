@@ -3,6 +3,9 @@ set -eu
 
 if [ -f ./vars.sh ]; then
 	source ./vars.sh
+else
+	echo "vars.sh: not found"
+	exit
 fi
 
 cd $1
