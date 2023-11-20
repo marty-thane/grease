@@ -1,7 +1,5 @@
 # Grease
 
-## Description
-
 This repository contains Bash scripts for generating my personal website. They
 are intended for use on file repositories (i.e. are not meant for blogs etc.).
 The scripts create index files and an RSS feed, offering customization through
