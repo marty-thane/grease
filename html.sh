@@ -51,7 +51,7 @@ EOF
 	        echo "skipping hidden: $item"
 	        continue
 	    fi
-	    if [[ " ${IGNORED_FILES[*]} " =~ " $item " ]]; then
+	    if [[ "${IGNORED_FILES[*]}" =~ "$item" ]]; then
 	        echo "skipping ignored: $item"
 	        continue
 	    fi
