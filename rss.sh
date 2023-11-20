@@ -1,8 +1,9 @@
 #!/bin/bash
 set -eu
 
-if [ -f ./vars.sh ]; then
-	source ./vars.sh
+src=$(dirname "$0")
+if [ -f $src/vars.sh ]; then
+	source $src/vars.sh
 else
 	echo "vars.sh: not found"
 	exit
