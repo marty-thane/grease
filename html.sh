@@ -34,7 +34,6 @@ for dir in $(find $root -type d -not -path "$root/.*" -not -name ".*"); do
 <html>
 <head>
 	<meta charset="utf-8" />
-	<meta name="generator" content="tree" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<meta name="author" content="$AUTHOR" />
 	<link rel="stylesheet" href="$BASEURL/style.css" />
