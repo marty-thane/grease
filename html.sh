@@ -5,7 +5,7 @@ print_emoji() {
 	file_type=$(file -b "$1")
 	case "$file_type" in
 		*PDF*) echo "📖";;
-		*audio*) echo "🎧";;
+		*Audio*) echo "🎧";;
 		*Media*) echo "🎬";;
 		*image*) echo "🖼️";;
 		*text*) echo "📄";;
