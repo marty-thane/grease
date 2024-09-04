@@ -1,5 +1,3 @@
-#!/bin/bash
-
 TITLE="Your Website"
 AUTHOR="John Doe"
 CONTACT="john.doe@example.com" # email address
