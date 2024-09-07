@@ -12,13 +12,13 @@ Usage
 2. Run the HTML index generator script on the location containing your file
    repository. For example:
 
-        bash html.sh public/
+       bash html.sh public/
 
    This will generate an index file in the specified directory (`public/`) and
    each of its subdirectories.
 3. Run the RSS feed generator script in a similar manner:
 
-        bash rss.sh public/
+       bash rss.sh public/
 
    The RSS file will be stored at the root of the specified directory.
 
